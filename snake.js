@@ -76,10 +76,10 @@ function Snake() {
 
     this.checkCollision = function() {
         for (var i=0; i<this.tail.length; i++) {
-             if (this.x === tail.x && 
-           this.y === tail.y) {
+             if (this.x === tail.x && this.y === tail.y) {
             this.total = 0;
             this.tail = [];
+            }
         }
     }
 }
