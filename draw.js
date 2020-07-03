@@ -1,3 +1,4 @@
+//globale variabelen
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
 const scale = 10;
@@ -5,6 +6,7 @@ const rows = canvas.height / scale;
 const columns = canvas.width / scale;
 var snake;
 
+//setup functie
 (function setup() {
     snake = new Snake();
     fruit = new Fruit();
@@ -27,6 +29,7 @@ var snake;
     }, 250)
 }())
 
+//eventlistener voor de arrowkeys
 window.addEventListener('keydown', ((evt) => {
     const direction = evt.key.replace('Arrow', '')
     snake.changeDirection(direction);

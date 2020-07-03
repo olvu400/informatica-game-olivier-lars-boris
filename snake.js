@@ -6,6 +6,7 @@ function Snake() {
     this.total = 0;
     this.tail = [];
 
+    //teken snake
     this.draw = function() {
         ctx.fillStyle = "#FFFFFF";
         for (let i=0; i < this.tail.length; i++) {
@@ -15,6 +16,7 @@ function Snake() {
         ctx.fillRect(this.x, this.y, scale, scale);
     }
 
+    //updatefunctie zodat de snake aan de achterkant weer weg gaat
     this.update = function() {
         for (let i=0; i<this.tail.length - 1; i++) {
             this.tail[i] = this.tail[i+1];
@@ -26,6 +28,7 @@ function Snake() {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
+        //boundries voor waar de slang wel en niet heen kan
         if (this.x > canvas.width) {
             this.x = 0;
         }
@@ -43,6 +46,7 @@ function Snake() {
         }
     }
 
+    //keystrokes voor het bewegen voor de slang
     this.changeDirection = function(direction) {
         switch(direction) {
             case 'Up':
@@ -64,6 +68,7 @@ function Snake() {
         }
     }
 
+    //check of de slang zijn hoofd op dezelfde x en y positie staat als de locatie van het fruit
     this.eat = function(fruit) {
         if (this.x === fruit.x && 
            this.y === fruit.y) {
@@ -74,6 +79,7 @@ function Snake() {
         return false;
     }
 
+    //checken of het hoofd van de slang het lichaam van de slang raakt
     this.checkCollision = function() {
         for (var i=0; i<this.tail.length; i++) {
              if (this.x === tail.x && this.y === tail.y) {
